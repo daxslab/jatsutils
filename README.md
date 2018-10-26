@@ -1,3 +1,3 @@
 # jatsutils
 
-Utility for obtain JATS XML data
+Utility for obtaining data from JATS XML
