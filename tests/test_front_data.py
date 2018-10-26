@@ -130,8 +130,8 @@ def test_article_affiliations(element_tree):
     assert article_affiliations[2]['aff']['country'] == "Germany"
 
     assert article_affiliations[3]['aff']['@id'] == "aff4"
-    assert article_affiliations[3]['aff']['institution']['@content-type'] == "orgname"
-    assert article_affiliations[3]['aff']['institution']['#text'] == "Princeton University"
+    assert article_affiliations[3]['aff']['institution'][0]['@content-type'] == "orgname"
+    assert article_affiliations[3]['aff']['institution'][0]['#text'] == "Princeton University"
     assert article_affiliations[3]['aff']['city'] == "Princeton"
     assert article_affiliations[3]['aff']['country'] == "United States"
 

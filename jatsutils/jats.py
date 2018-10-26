@@ -111,7 +111,10 @@ class JatsElementTree:
         article_affiliations_group = self.root.findall('front/article-meta/aff')
         article_affiliations = []
         for article_affiliation in article_affiliations_group:
-            article_affiliations.append(xmltodict.parse(tostring(article_affiliation)))
+            parsed = xmltodict.parse(tostring(article_affiliation))
+            if not(isinstance(parsed['aff']['institution'], list)):
+                parsed['aff']['institution'] = [parsed['aff']['institution']]
+            article_affiliations.append(parsed)
         return article_affiliations
 
     def get_article_publication_date(self):
