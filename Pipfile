@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+jatsutils = {editable = true, path = "."}
+
+[requires]
+python_version = "3.7"
+
+[dev-packages]
+jatsutils = {editable = true, extras = ["dev"], path = "."}

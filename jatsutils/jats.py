@@ -44,22 +44,9 @@ class JatsElementTree:
         Get article categories XML representation as dict
         :return: OrderedDict
         """
-        # categories_tree = self.root.findall('front/article-meta/article-categories/subj-group')
-        # categories = {}
-        # for category_group_tree in categories_tree:
-        #     lang = category_group_tree.attrib['{http://www.w3.org/XML/1998/namespace}lang']
-        #     categories[lang] = []
-        #     for category_tree in category_group_tree:
-        #         categories[lang].append({
-        #             'content-type': category_tree.attrib['content-type'],
-        #             'content': category_tree.text
-        #         })
-        # return categories
-
         categories_tree = self.root.find('front/article-meta/article-categories')
         # return [xmltodict.parse(tostring(c)) for c in categories_tree]
         return xmltodict.parse(tostring(categories_tree))
-
 
     def get_title(self):
         """
@@ -89,9 +76,11 @@ class JatsElementTree:
         :return: list
         """
         if only_persons:
-            authors_contrib_group = self.root.findall('front/article-meta/contrib-group[@content-type="author"]//contrib[@contrib-type="person"]')
+            authors_contrib_group = self.root.findall(
+                'front/article-meta/contrib-group[@content-type="author"]//contrib[@contrib-type="person"]')
         else:
-            authors_contrib_group = self.root.findall('front/article-meta/contrib-group[@content-type="author"]/contrib')
+            authors_contrib_group = self.root.findall(
+                'front/article-meta/contrib-group[@content-type="author"]/contrib')
         author_contrib = []
         for authors_contrib in authors_contrib_group:
             author_contrib.append(xmltodict.parse(tostring(authors_contrib)))
@@ -104,9 +93,11 @@ class JatsElementTree:
         :return: list
         """
         if only_persons:
-            editors_contrib_group = self.root.findall('front/article-meta/contrib-group[@content-type="editor"]//contrib[@contrib-type="person"]')
+            editors_contrib_group = self.root.findall(
+                'front/article-meta/contrib-group[@content-type="editor"]//contrib[@contrib-type="person"]')
         else:
-            editors_contrib_group = self.root.findall('front/article-meta/contrib-group[@content-type="editor"]/contrib')
+            editors_contrib_group = self.root.findall(
+                'front/article-meta/contrib-group[@content-type="editor"]/contrib')
         editor_contrib = []
         for editors_contrib in editors_contrib_group:
             editor_contrib.append(xmltodict.parse(tostring(editors_contrib)))

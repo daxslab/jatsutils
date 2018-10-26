@@ -3,6 +3,7 @@ from jatsutils import JatsElementTree as JET
 from xml.etree.ElementTree import dump
 import os
 
+
 def test_load_from_file(static_dir):
 
     test_manuscript = os.path.join(static_dir, 'manuscript.xml')
@@ -27,4 +28,3 @@ def test_load_from_string(static_dir):
     title = jet.root.find('front/article-meta/title-group/article-title').text
 
     assert 'Object vision to hand action in macaque parietal, premotor, and motor cortices' == title
-

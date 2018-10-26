@@ -13,6 +13,18 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/cccaballero/jatsutils",
     packages=setuptools.find_packages(),
+    install_requires=[
+        'lxml',
+        'xmltodict'
+    ],
+    extras_require={
+        'dev': [
+            'tox',
+            'pytest',
+            'pytest-pep8',
+            'pytest-cov'
+        ]
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

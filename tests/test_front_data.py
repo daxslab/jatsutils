@@ -34,17 +34,16 @@ def test_article_categories(element_tree):
     assert categories['article-categories']['subj-group'][1]['subject'][2]['#text'] == "Epidemiología y salud global"
 
 
-
-
-
 def test_title(element_tree):
     assert element_tree.get_title() == 'Object vision to hand action in macaque parietal, premotor, and motor cortices'
+
 
 def test_trans_titles(element_tree):
     trans_titles = element_tree.get_trans_titles()
     assert 'es' in trans_titles.keys()
     assert trans_titles['es']['id'] == 'trans-title-1'
     assert trans_titles['es']['title'] == 'Objeto de visión a acción manual en cortezas parietales, premotoras y motoras de macaco'
+
 
 def test_article_authors(element_tree):
     article_authors = element_tree.get_article_authors()
@@ -91,6 +90,7 @@ def test_article_authors(element_tree):
     assert article_authors[3]['contrib']['xref']['@ref-type'] == 'aff'
     assert article_authors[3]['contrib']['xref']['@rid'] == 'aff3'
 
+
 def test_article_editors(element_tree):
     article_authors = element_tree.get_article_editors()
     assert article_authors[0]['contrib']['@contrib-type'] == "person"
@@ -101,6 +101,7 @@ def test_article_editors(element_tree):
     assert article_authors[0]['contrib']['name']['given-names'] == 'Sabine'
     assert article_authors[0]['contrib']['xref']['@ref-type'] == 'aff'
     assert article_authors[0]['contrib']['xref']['@rid'] == 'aff1'
+
 
 def test_article_affiliations(element_tree):
     article_affiliations = element_tree.get_article_affiliations()
@@ -134,6 +135,7 @@ def test_article_affiliations(element_tree):
     assert article_affiliations[3]['aff']['city'] == "Princeton"
     assert article_affiliations[3]['aff']['country'] == "United States"
 
+
 def assert_date(date_dict, date_type, date):
     assert date_dict['@date-type'] == date_type
     assert date_dict['@iso-8601-date'] == date
@@ -146,20 +148,26 @@ def test_article_publication_date(element_tree):
     article_pub_date = element_tree.get_article_publication_date()
     assert_date(article_pub_date['pub-date'], "pub", "1999-01-29")
 
+
 def test_volume(element_tree):
     assert element_tree.get_volume() == '318'
+
 
 def test_issue(element_tree):
     assert element_tree.get_issue() == '7187'
 
+
 def test_fpage(element_tree):
     assert element_tree.get_fpage() == '837'
+
 
 def test_lpage(element_tree):
     assert element_tree.get_lpage() == '841'
 
+
 def test_page_range(element_tree):
     assert element_tree.get_page_range() == '837-841'
+
 
 def test_article_history(element_tree):
     article_history = element_tree.get_article_history()
@@ -168,6 +176,7 @@ def test_article_history(element_tree):
     assert_date(article_history['history']['date'][2], "rev-recd", "1998-05-24")
     assert_date(article_history['history']['date'][3], "rev-request", "1998-03-14")
 
+
 def test_article_permissions(element_tree):
     article_permissions = element_tree.get_article_permissions()
     assert article_permissions['permissions']['copyright-statement'] == '© 2018 Substance Consortium'
@@ -175,15 +184,18 @@ def test_article_permissions(element_tree):
     assert article_permissions['permissions']['copyright-holder'] == 'Substance Consortium'
     assert article_permissions['permissions']['license']['ali:license_ref'] == 'http://creativecommons.org/licenses/by/4.0/'
 
+
 def test_article_abstract(element_tree):
     article_abstract = element_tree.get_article_abstract()
     assert article_abstract['abstract']['p']['@id'] == 'p-1'
+
 
 def test_article_trans_abstracts(element_tree):
     article_trans_abstracts = element_tree.get_article_trans_abstracts()
     assert article_trans_abstracts[0]['trans-abstract']['@id'] == 'trans-abstract-1'
     assert article_trans_abstracts[0]['trans-abstract']['@xml:lang'] == 'es'
     assert article_trans_abstracts[0]['trans-abstract']['p']['@id'] == 'p-1-1'
+
 
 def test_article_keywords(element_tree):
     article_keywords = element_tree.get_article_keywords()
@@ -202,6 +214,7 @@ def test_article_keywords(element_tree):
     assert article_keywords[1]['kwd-group']['kwd'][0]['#text'] == 'nada'
     assert article_keywords[1]['kwd-group']['kwd'][1]['@content-type'] == 'author-keyword'
     assert article_keywords[1]['kwd-group']['kwd'][1]['#text'] == 'si'
+
 
 def test_article_funding_group(element_tree):
     article_funding_group = element_tree.get_article_funding_group()

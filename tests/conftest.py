@@ -20,9 +20,11 @@ def datadir(tmpdir, request):
 
     return tmpdir
 
+
 @pytest.fixture()
 def static_dir():
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), "static")
+
 
 @pytest.fixture()
 def element_tree(static_dir):
