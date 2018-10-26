@@ -20,6 +20,7 @@ setuptools.setup(
     extras_require={
         'dev': [
             'tox',
+            'tox-travis',
             'pytest',
             'pytest-pep8',
             'pytest-cov'

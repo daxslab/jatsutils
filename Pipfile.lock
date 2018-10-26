@@ -252,6 +252,12 @@
             ],
             "version": "==3.5.2"
         },
+        "tox-travis": {
+            "hashes": [
+                "sha256:7e2f0b9db1ff9521da6a32a34aa4bfe292ea1c90ff8eb26001bf52f44ca0dc47"
+            ],
+            "version": "==0.11"
+        },
         "virtualenv": {
             "hashes": [
                 "sha256:2ce32cd126117ce2c539f0134eb89de91a8413a29baac49cbab3eb50e2026669",
