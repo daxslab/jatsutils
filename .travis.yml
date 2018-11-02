@@ -19,17 +19,11 @@ stages:
   - name: deploy
     if: tag IS present
 
-jobs:
-  include:
-  - stage: deploy
-    python: 3.6
-    install: true
-    script: true
-    after_success: true
-    deploy:
-      provider: pypi
-      user: cccaballero
-      password:
-        secure: "jNTG8vQOV2qFvvwP4Br0ZbdA5AYrUrxPeqPbwBYYbREEpljKG+75ka/9kXu3D22qGPpWh/Weer17XN6kxG5H0FqjqBKtL4+F+BkPPGmbKqAH4lTsaQndEx5lLmcjNMIqzIIMoIWz/cvU1gVQ4ZOdw5EdhogZukOaoHrSdmSA1VBqa/77KpH4/WV6E3Mb0a+yOkf4OEPZt94IXm1FRQaHpHPpTt5OED2xMTNptDkxmea9jcT5eJIry1EB5i3sSY6c81qxmMbf1PHAT5uos47k/LAcbN7rJD56730eaRubnwbrpIfDVqYfwIfTFlmolaiSXMNAcj41a9l0sdicAommpi4+DxI+Un0S40n+lUulCUVwRQqeOLAc8TiMzYrH/2oV9/UQh6y2TUqjL7dGriRSPpeU22fdpu0I8kwPlm998fmDVjSJncvM+prsLmfHANufmqvk1ZQwcdCDoC/nr6ua3b0GhgVh4WI1fmRNcpLlHvWkgp9/hXuQaiQ3UXw1mc8U3AL8iPDHqkxSfdB9AtiGJsv+NKyhV2myiOEOgO6xXMeKkOR8App0DGpa3BLC96IJvCO4A8/JgpYbXSQJBg9xABhNcZVcoGf8fWFyr+LDkY/wFatMW73pW5apEHCGB++8IHjjhP0ViJcf8ycwyiR8xLmip7uLbR3/9+xRBU4aK0A="
-      on:
-        all_branches: true
+deploy:
+  provider: pypi
+  user: cccaballero
+  password:
+    secure: a0ar26cZtdPM9OWY8EbQTRFlMPGOYhjyLfRYeJyJoIvL+NKQxrlciARrOb9QviHsmRAvQJy8IUshzoSIHvAueKKmGbWKe2eTMsNeOdTp6YI43/NnjRh2+lPw5RTIP45bARabki30LvDyw0K3/Sb8qjzzmGlb4ZZVzQrERJlzHtPjXHQkNZmGnesM84oZoQU7i5I8+DcIVy2raHvU+Kd8zKZOU96+InqRuNh0sjfeOfM3U5OMR04F7eTZBMqExOrQoZBcp+uDc4SBMZB4KNZSndLMtF6Q7BOA5dVOjKv50Ma42T4hIzmfknJLTn4XPsQh0WBCgLJJJx8wqBsqlS+9v3kNw5aHHYsjQ6om5pmroPI8Rbh2lrjLFcASJ+KTD25OxeoMEvgHeGhv1yftXHJRbjh14A69ueoQ0oP4zfrmbrThW6xGIL9LbNBBbqZGtyvO3yNSvTuzX1C27PlGAsO8AMg6Aup0ytlJdwU8NWdPxMSIGj8RdY/nj9tMpU9H8OS/vS0GoMDsUHKOziwJNNHsHCpA2C5FtQtoLmOQRBWDfeifJVTW1OT/4loZ7uEr49n+Z7sixSkgm3zZtlsjpIRZ+BGdh8pL6WzJ5diZPH2aOAOrNkss0YdXUem0bAkdTKiOhNGokKt9LDlZ4Pe7eFx69mTldcjFLVLeOIIO+ceOuN4=
+  on:
+    tags: true
+    all_branches: true
